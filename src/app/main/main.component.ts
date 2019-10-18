@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import gql from "graphql-tag";
 import { Apollo } from "apollo-angular";
-import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { Recommend } from "src/models/recommend";
+import { University } from "src/models/university";
 
-interface Data {
+interface Response {
   readonly allRecommends: Recommend[];
+  readonly hostUniversities: University[];
+  readonly rankUniversities: University[];
 }
 
 export const mainGraphql = gql`
@@ -48,17 +50,29 @@ export const mainGraphql = gql`
   styleUrls: ["./main.component.less"]
 })
 export class MainComponent implements OnInit, OnDestroy {
-  data: Observable<any>;
+  loading: boolean;
+  allRecommends: Recommend[];
+  hostUniversities: University[];
+  rankUniversities: University[];
+
+  private querySubscription: Subscription;
 
   ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
+    this.querySubscription.unsubscribe();
   }
 
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
-    this.data = this.apollo
-      .watchQuery({ query: mainGraphql })
-      .valueChanges.pipe(map(({ data }) => data));
+    this.querySubscription = this.apollo
+      .watchQuery<Response>({
+        query: mainGraphql
+      })
+      .valueChanges.subscribe(({ data, loading }) => {
+        this.loading = loading;
+        this.allRecommends = data.allRecommends;
+        this.hostUniversities = data.hostUniversities;
+        this.rankUniversities = data.rankUniversities;
+      });
   }
 }

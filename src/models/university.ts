@@ -9,4 +9,9 @@ export class University extends BaseModel {
   rank: Number;
   univ_type_rank: Number;
   badge: String;
+  departments: Department[];
+}
+
+export class Department extends BaseModel {
+  university: University;
 }

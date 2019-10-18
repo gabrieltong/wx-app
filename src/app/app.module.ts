@@ -11,13 +11,18 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { GraphQLModule } from './graphql.module';
 import { MainComponent } from './main/main.component';
+import { UnivsComponent } from './univs/univs.component';
+import { UnivDetailComponent } from './univ-detail/univ-detail.component';
+
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    UnivsComponent,
+    UnivDetailComponent
   ],
   imports: [
     BrowserModule,
