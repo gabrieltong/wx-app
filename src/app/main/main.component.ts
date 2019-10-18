@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import gql from "graphql-tag";
 import { Apollo } from "apollo-angular";
-import { Observable, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
 import { Recommend } from "src/models/recommend";
 import { University } from "src/models/university";
 
