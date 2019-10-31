@@ -1,0 +1,15 @@
+<p>catalog works!</p>
+<h1>{{ level }}</h1>
+<div *ngFor="let __level of levels">
+  <div *ngIf="level === __level">
+    <button disabled (click)="level = __level">{{ __level }}</button>
+  </div>
+
+  <div *ngIf="level !== __level">
+    <button clickable (click)="level = __level">SS: {{ __level }}</button>
+  </div>
+</div>
+
+<div *ngFor="let univ of univs">
+  <app-catalog-item [univ]="univ"></app-catalog-item>
+</div>

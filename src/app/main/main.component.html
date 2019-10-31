@@ -1,15 +1,17 @@
 <p>main works!</p>
 
-{{ loading }}
-
+<a routerLink="/catalog" routerLinkActive="active">
+  学校一览
+</a>
+<hr />
 <p>All Recommend</p>
 <div *ngFor="let recommend of recommends">
   <a routerLink="/recommend/{{ recommend.id }}" routerLinkActive="active"
     >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a
   >
 </div>
-
-<p>Host University</p>
+<hr />
+<p>Hot University</p>
 <div *ngFor="let univ of hots">
   <a routerLink="/univ/{{ univ.id }}"> {{ univ.level }} {{ univ.name_zh }} </a>
 </div>

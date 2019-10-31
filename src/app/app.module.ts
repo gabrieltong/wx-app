@@ -15,6 +15,8 @@ import { UnivsComponent } from "./univs/univs.component";
 import { UnivDetailComponent } from "./univ-detail/univ-detail.component";
 import { RecommendListComponent } from "./recommend-list/recommend-list.component";
 import { RecommendUnivComponent } from "./recommend-univ/recommend-univ.component";
+import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 
 registerLocaleData(zh);
 
@@ -25,7 +27,9 @@ registerLocaleData(zh);
     UnivsComponent,
     UnivDetailComponent,
     RecommendListComponent,
-    RecommendUnivComponent
+    RecommendUnivComponent,
+    CatalogComponent,
+    CatalogItemComponent
   ],
   imports: [
     BrowserModule,
