@@ -1,1 +1,6 @@
-<p>search-item works!</p>
+<a *ngIf="univ" routerLink="/univ/{{ univ.id }}">
+  <h3>
+    {{ univ?.name_zh }}
+  </h3>
+  <h3>{{ univ?.univ_type }} / {{ univ?.region }}</h3>
+</a>

@@ -4,7 +4,9 @@ import { MainComponent } from "./main/main.component";
 import { UnivsComponent } from "./univs/univs.component";
 import { UnivDetailComponent } from "./univ-detail/univ-detail.component";
 import { RecommendListComponent } from "./recommend-list/recommend-list.component";
-import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogComponent } from "./catalog/catalog.component";
+import { SearchComponent } from "./search/search.component";
+import { AdvSearchComponent } from "./adv-search/adv-search.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/core", pathMatch: "full" },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: "univ/:id", component: UnivDetailComponent },
   { path: "recommend/:id", component: RecommendListComponent },
   { path: "catalog", component: CatalogComponent },
+  { path: "search", component: SearchComponent },
+  { path: "adv_search", component: AdvSearchComponent }
 ];
 
 @NgModule({
