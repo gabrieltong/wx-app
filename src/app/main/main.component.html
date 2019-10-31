@@ -1,5 +1,9 @@
 <p>main works!</p>
 
+<h4>Category {{ category }}</h4>
+<button (click)="category = 0">学部</button>
+<button (click)="category = 1">大学院</button>
+<hr />
 <a routerLink="/search">
   <input value="大学搜索" />
 </a>
@@ -8,7 +12,7 @@
   学校一览
 </a>
 <hr />
-<a routerLink="/adv_search">
+<a routerLink="/adv_search/{{ category }}">
   高级搜索
 </a>
 <hr />

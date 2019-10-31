@@ -1,6 +1,45 @@
 <p>高级筛选</p>
 
-<div *ngIf="searchMeta">
-<h4>科目选择</h4>
+<div *ngIf="searchMeta && searchFilter">
+  <h4>科目选择 {{ searchFilter.wen_or_li }}</h4>
+  <button (click)="searchFilter.wen_or_li = 0">学部文科</button>
+  <button (click)="searchFilter.wen_or_li = 1">学部理科</button>
+  <br /><br />
+  <h4>专业选择 {{ searchFilter.major }}</h4>
+  <br /><br />
+  <h4>地区选择 {{ searchFilter.region_in.join(" /") }}</h4>
+  <div *ngFor="let region of searchMeta.region">
+    <button (click)="selectRegion(region)">{{ region }}</button>
+  </div>
+  <br /><br />
 
+  <h4>学校类型 {{ searchFilter.univ_type_in.join(" /") }}</h4>
+  <div *ngFor="let univ_type of searchMeta.univ_type">
+    <button (click)="selectUnivType(univ_type)">{{ univ_type }}</button>
+  </div>
+  <br /><br />
+
+  <h4>英语要求 {{ searchFilter.is_english }}</h4>
+  <button (click)="searchFilter.is_english = 2">不限</button>
+  <button (click)="searchFilter.is_english = 0">无</button>
+  <button (click)="searchFilter.is_english = 1">必须</button>
+  <br /><br />
+
+  <h4>面试 {{ searchFilter.is_interview }}</h4>
+  <button (click)="searchFilter.is_interview = 2">不限</button>
+  <button (click)="searchFilter.is_interview = 0">无</button>
+  <button (click)="searchFilter.is_interview = 1">必须</button>
+  <br /><br />
+
+  <h4>校内考考试 {{ searchFilter.is_xiaonei }}</h4>
+  <button (click)="searchFilter.is_xiaonei = 2">不限</button>
+  <button (click)="searchFilter.is_xiaonei = 0">无</button>
+  <button (click)="searchFilter.is_xiaonei = 1">必须</button>
+  <br /><br />
+
+  <h4>EJU 考试 {{ searchFilter.is_eju }}</h4>
+  <button (click)="searchFilter.is_eju = 2">不限</button>
+  <button (click)="searchFilter.is_eju = 0">无</button>
+  <button (click)="searchFilter.is_eju = 1">必须</button>
+  <br /><br />
 </div>

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: "recommend/:id", component: RecommendListComponent },
   { path: "catalog", component: CatalogComponent },
   { path: "search", component: SearchComponent },
-  { path: "adv_search", component: AdvSearchComponent }
+  { path: "adv_search/:category", component: AdvSearchComponent }
 ];
 
 @NgModule({

@@ -32,6 +32,7 @@ export const mainGraphql = gql`
   styleUrls: ["./main.component.less"]
 })
 export class MainComponent implements OnInit, OnDestroy {
+  category = 0;
   loading: boolean;
   recommends: Recommend[];
   hots: University[];
