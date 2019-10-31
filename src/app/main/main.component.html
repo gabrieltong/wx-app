@@ -1,16 +1,20 @@
 <p>main works!</p>
 
-<a routerLink="/search" routerLinkActive="active">
+<a routerLink="/search">
   <input value="大学搜索" />
 </a>
 <hr />
-<a routerLink="/catalog" routerLinkActive="active">
+<a routerLink="/catalog">
   学校一览
+</a>
+<hr />
+<a routerLink="/adv_search">
+  高级搜索
 </a>
 <hr />
 <p>All Recommend</p>
 <div *ngFor="let recommend of recommends">
-  <a routerLink="/recommend/{{ recommend.id }}" routerLinkActive="active"
+  <a routerLink="/recommend/{{ recommend.id }}"
     >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a
   >
 </div>

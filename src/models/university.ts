@@ -1,5 +1,14 @@
 import { BaseModel } from "./share";
 
+export class SearchMeta extends BaseModel {
+  wen0: string[];
+  li0: string[];
+  wen1: string[];
+  li1: string[];
+  region: string[];
+  univ_type: string[];
+}
+
 export class University extends BaseModel {
   name_zh: string;
   name_ja: string;
