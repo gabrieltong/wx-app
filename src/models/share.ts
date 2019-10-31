@@ -1,3 +1,3 @@
 export class BaseModel {
-  readonly id: string;
+  id: string;
 }

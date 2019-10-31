@@ -11,7 +11,7 @@ interface Response {
 }
 
 export const mainGraphql = gql`
-  query {
+  query main {
     recommends: allRecommends(sortOrder: "DESC", perPage: 4) {
       id
       name

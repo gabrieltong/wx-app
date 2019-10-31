@@ -8,5 +8,5 @@ export class RecommendItem extends BaseModel {
 export class Recommend extends BaseModel {
   name: string;
   img: string;
-  items?: RecommendItem[];
+  items: RecommendItem[];
 }

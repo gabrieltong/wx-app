@@ -13,7 +13,8 @@ import { GraphQLModule } from "./graphql.module";
 import { MainComponent } from "./main/main.component";
 import { UnivsComponent } from "./univs/univs.component";
 import { UnivDetailComponent } from "./univ-detail/univ-detail.component";
-import { RecommendListComponent } from './recommend-list/recommend-list.component';
+import { RecommendListComponent } from "./recommend-list/recommend-list.component";
+import { RecommendUnivComponent } from "./recommend-univ/recommend-univ.component";
 
 registerLocaleData(zh);
 
@@ -23,7 +24,8 @@ registerLocaleData(zh);
     MainComponent,
     UnivsComponent,
     UnivDetailComponent,
-    RecommendListComponent
+    RecommendListComponent,
+    RecommendUnivComponent
   ],
   imports: [
     BrowserModule,

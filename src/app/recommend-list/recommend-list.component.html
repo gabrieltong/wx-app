@@ -1,1 +1,7 @@
-<p>recommend-list works!</p>
+<p>{{ recommend?.name }}</p>
+<div *ngFor="let univ of univs">
+  <app-recommend-univ
+    [univ]="univ"
+    [recommend]="recommend"
+  ></app-recommend-univ>
+</div>

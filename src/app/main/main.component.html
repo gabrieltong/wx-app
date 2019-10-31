@@ -4,7 +4,7 @@
 
 <p>All Recommend</p>
 <div *ngFor="let recommend of recommends">
-  <a routerLink="/univs" routerLinkActive="active"
+  <a routerLink="/recommend/{{ recommend.id }}" routerLinkActive="active"
     >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a
   >
 </div>

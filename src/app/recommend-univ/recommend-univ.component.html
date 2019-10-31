@@ -1,0 +1,7 @@
+<div *ngIf="univ && recommend">
+  <a routerLink="/univ/{{ univ.id }}">
+    <h1>{{ univ.name_zh }}</h1>
+    <h2>{{ univ.univ_type }} / {{ univ.region }} / {{ univ.level }}</h2>
+    <h3>推荐专业: {{ recommendItem?.note }}</h3>
+  </a>
+</div>
