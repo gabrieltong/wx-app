@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import gql from "graphql-tag";
 import { University } from "src/models/university";
 import { Subscription } from "rxjs";
@@ -37,19 +38,23 @@ export const univGraphql = gql`
 })
 export class UnivDetailComponent implements OnInit, OnDestroy {
   loading: boolean;
-  private querySubscription: Subscription;
+  private querySubscription$: Subscription;
   university: University;
 
   ngOnDestroy(): void {
-    this.querySubscription.unsubscribe();
+    this.querySubscription$.unsubscribe();
   }
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.querySubscription = this.apollo
+    const id = this.route.snapshot.paramMap.get("id");
+    this.querySubscription$ = this.apollo
       .watchQuery<Response>({
-        query: univGraphql
+        query: univGraphql,
+        variables: {
+          id
+        }
       })
       .valueChanges.subscribe(({ data, loading }) => {
         this.loading = loading;

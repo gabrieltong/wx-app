@@ -3,18 +3,13 @@
 {{ loading }}
 
 <p>All Recommend</p>
-<div *ngFor="let recommend of allRecommends">
+<div *ngFor="let recommend of recommends">
   <a routerLink="/univs" routerLinkActive="active"
     >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a
   >
 </div>
 
 <p>Host University</p>
-<div *ngFor="let univ of hostUniversities">
-  <a routerLink="/univ/{{ univ.id }}"> {{ univ.level }} {{ univ.name_zh }} </a>
-</div>
-
-<p>Rank University</p>
-<div *ngFor="let univ of rankUniversities">
+<div *ngFor="let univ of hots">
   <a routerLink="/univ/{{ univ.id }}"> {{ univ.level }} {{ univ.name_zh }} </a>
 </div>

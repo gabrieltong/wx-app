@@ -6,40 +6,22 @@ import { Recommend } from "src/models/recommend";
 import { University } from "src/models/university";
 
 interface Response {
-  readonly allRecommends: Recommend[];
-  readonly hostUniversities: University[];
-  readonly rankUniversities: University[];
+  readonly recommends: Recommend[];
+  readonly hots: University[];
 }
 
 export const mainGraphql = gql`
   query {
-    allRecommends(perPage: 4, page: 0) {
+    recommends: allRecommends(sortOrder: "DESC", perPage: 4) {
       id
       name
       img
     }
-
-    hostUniversities: allUniversities(perPage: 8) {
+    hots: allUniversities(perPage: 8) {
       id
       name_zh
       name_ja
       badge
-    }
-
-    rankUniversities: allUniversities(
-      perPage: 8
-      sortField: "univ_type_rank"
-      sortOrder: "DESC"
-    ) {
-      id
-      name_zh
-      name_ja
-      badge
-    }
-    allRecommends(perPage: 4, page: 0) {
-      id
-      name
-      img
     }
   }
 `;
@@ -51,28 +33,26 @@ export const mainGraphql = gql`
 })
 export class MainComponent implements OnInit, OnDestroy {
   loading: boolean;
-  allRecommends: Recommend[];
-  hostUniversities: University[];
-  rankUniversities: University[];
+  recommends: Recommend[];
+  hots: University[];
 
-  private querySubscription: Subscription;
+  private querySubscription$: Subscription;
 
   ngOnDestroy(): void {
-    this.querySubscription.unsubscribe();
+    this.querySubscription$.unsubscribe();
   }
 
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
-    this.querySubscription = this.apollo
+    this.querySubscription$ = this.apollo
       .watchQuery<Response>({
         query: mainGraphql
       })
       .valueChanges.subscribe(({ data, loading }) => {
         this.loading = loading;
-        this.allRecommends = data.allRecommends;
-        this.hostUniversities = data.hostUniversities;
-        this.rankUniversities = data.rankUniversities;
+        this.recommends = data.recommends;
+        this.hots = data.hots;
       });
   }
 }

@@ -5,10 +5,10 @@ export class University extends BaseModel {
   name_ja: string;
   univ_type: string;
   region: string;
-  level: String;
-  rank: Number;
-  univ_type_rank: Number;
-  badge: String;
+  level: string;
+  rank: number;
+  univ_type_rank: number;
+  badge: string;
   departments: Department[];
 }
 
@@ -58,7 +58,7 @@ export class Season extends BaseModel {
 
   /* 日语仅大学院有 */
   is_ja: number;
-  eju_ja: Number;
+  eju_ja: number;
   jlpt: string;
 
   is_english: number;
@@ -67,7 +67,7 @@ export class Season extends BaseModel {
   toefl_deadline_end: Date;
   toefl_base_score: number;
   toefl_best_score: number;
-  toefl_note: String;
+  toefl_note: string;
   is_toeic: number;
   toeic_deadline_start: Date;
   toeic_deadline_end: Date;
@@ -78,7 +78,7 @@ export class Season extends BaseModel {
 
   is_three_univ: number;
   is_xiaonei: number;
-  xiaonei_contents: String;
+  xiaonei_contents: string;
   is_interview: number;
 
   online_apply_start: Date;
@@ -94,14 +94,14 @@ export class Season extends BaseModel {
 
 export class HistoryStat extends BaseModel {
   department?: Department;
-  faculty: Faculty; //学科
-  year?: number; //【年份】
-  eju_ja?: number; //【EJU日语平均分】
-  eju_math?: number; //【EJU数学平均分】
-  eju_wen?: number; //【EJU文综平均分】
-  eju_physics?: number; //【EJU物理平均分】
-  eju_chemistry?: number; //【EJU化学平均分】
-  eju_biology?: number; //【EJU生物平均分】
-  apply_num?: number; //【报考人数】
-  pass_num?: number; //【合格人数】
+  faculty: Faculty; // 学科
+  year?: number; // 【年份】
+  eju_ja?: number; // 【EJU日语平均分】
+  eju_math?: number; // 【EJU数学平均分】
+  eju_wen?: number; // 【EJU文综平均分】
+  eju_physics?: number; // 【EJU物理平均分】
+  eju_chemistry?: number; // 【EJU化学平均分】
+  eju_biology?: number; // 【EJU生物平均分】
+  apply_num?: number; // 【报考人数】
+  pass_num?: number; // 【合格人数】
 }
