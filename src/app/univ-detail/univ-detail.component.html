@@ -1,3 +1,27 @@
-<ng-container *ngIf="university">
-  <h1>{{ university.name_zh }}</h1>
-</ng-container>
+<Navbar *ngIf="university" [leftContent]="'back'" (onLeftClick)="goBack()">
+  {{ university.name_zh }}
+</Navbar>
+
+<a
+  *ngFor="let department of university?.departments"
+  routerLink="/department/{{ department.id }}"
+>
+  <WhiteSpace [size]="'sm'"></WhiteSpace>
+  <WingBlank [size]="'xs'">
+    <Card>
+      <CardHeader [title]="department.name"> </CardHeader>
+      <CardBody>
+        <Badge
+          *ngFor="let faculty of department.faculties"
+          [text]="faculty.major"
+          [hot]="true"
+          style="margin-left:12px;"
+        ></Badge>
+        <br />
+        <span *ngFor="let faculty of department.faculties">
+          {{ faculty.name }} /
+        </span>
+      </CardBody>
+    </Card>
+  </WingBlank>
+</a>
