@@ -8,6 +8,7 @@ import { CatalogComponent } from "./catalog/catalog.component";
 import { SearchComponent } from "./search/search.component";
 import { AdvSearchComponent } from "./adv-search/adv-search.component";
 import { DepartmentComponent } from "./department/department.component";
+import { FacultyComponent } from "./faculty/faculty.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/core", pathMatch: "full" },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: "catalog/:category", component: CatalogComponent },
   { path: "search/:category", component: SearchComponent },
   { path: "adv_search/:category", component: AdvSearchComponent },
-  { path: "department/:id", component: DepartmentComponent }
+  { path: "department/:id", component: DepartmentComponent },
+  { path: "faculty/:id", component: FacultyComponent }
 ];
 
 @NgModule({

@@ -1,1 +1,21 @@
-<p>department works!</p>
+<p>{{ department?.name }}</p>
+<a
+  *ngFor="let faculty of department?.faculties"
+  routerLink="/faculty/{{ faculty.id }}"
+>
+  <h3>{{ faculty.name }}</h3>
+  <h4>{{ faculty.major }}</h4>
+  <h5>{{ faculty.wen_or_li }}</h5>
+</a>
+
+<div *ngFor="let stat of stats">
+  <h3>{{ stat.year }}</h3>
+  <p>{{ stat.eju_ja }}</p>
+  <p>{{ stat.eju_math }}</p>
+  <p>{{ stat.eju_wen }}</p>
+  <p>{{ stat.eju_physics }}</p>
+  <p>{{ stat.eju_chemistry }}</p>
+  <p>{{ stat.eju_biology }}</p>
+  <p>{{ stat.apply_num }}</p>
+  <p>{{ stat.pass_num }}</p>
+</div>
