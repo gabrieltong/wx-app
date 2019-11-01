@@ -33,9 +33,9 @@ export const mainGraphql = gql`
 })
 export class MainComponent implements OnInit, OnDestroy {
   category = 0;
-  loading: boolean;
-  recommends: Recommend[];
-  hots: University[];
+  loading = false;
+  recommends: Recommend[] = [];
+  hots: University[] = [];
 
   private querySubscription$: Subscription;
 

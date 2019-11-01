@@ -11,11 +11,11 @@ import { AdvSearchComponent } from "./adv-search/adv-search.component";
 const routes: Routes = [
   { path: "", redirectTo: "/core", pathMatch: "full" },
   { path: "core", component: MainComponent },
-  { path: "univs", component: UnivsComponent },
-  { path: "univ/:id", component: UnivDetailComponent },
-  { path: "recommend/:id", component: RecommendListComponent },
-  { path: "catalog", component: CatalogComponent },
-  { path: "search", component: SearchComponent },
+  { path: "univs/:category", component: UnivsComponent },
+  { path: "univ/:id/:category", component: UnivDetailComponent },
+  { path: "recommend/:id/:category", component: RecommendListComponent },
+  { path: "catalog/:category", component: CatalogComponent },
+  { path: "search/:category", component: SearchComponent },
   { path: "adv_search/:category", component: AdvSearchComponent }
 ];
 

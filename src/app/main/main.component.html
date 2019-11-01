@@ -4,11 +4,11 @@
 <button (click)="category = 0">学部</button>
 <button (click)="category = 1">大学院</button>
 <hr />
-<a routerLink="/search">
+<a routerLink="/search/{{ category }}">
   <input value="大学搜索" />
 </a>
 <hr />
-<a routerLink="/catalog">
+<a routerLink="/catalog/{{ category }}">
   学校一览
 </a>
 <hr />
@@ -18,12 +18,14 @@
 <hr />
 <p>All Recommend</p>
 <div *ngFor="let recommend of recommends">
-  <a routerLink="/recommend/{{ recommend.id }}"
+  <a routerLink="/recommend/{{ recommend.id }}/{{ category }}"
     >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a
   >
 </div>
 <hr />
 <p>Hot University</p>
 <div *ngFor="let univ of hots">
-  <a routerLink="/univ/{{ univ.id }}"> {{ univ.level }} {{ univ.name_zh }} </a>
+  <a routerLink="/univ/{{ univ.id }}/{{ category }}">
+    {{ univ.level }} {{ univ.name_zh }}
+  </a>
 </div>

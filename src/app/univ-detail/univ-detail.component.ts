@@ -4,32 +4,7 @@ import gql from "graphql-tag";
 import { University } from "src/models/university";
 import { Subscription } from "rxjs";
 import { Apollo } from "apollo-angular";
-
-export interface Response {
-  readonly university: University;
-}
-
-export const univGraphql = gql`
-  query univ($id: ID!) {
-    university: University(id: $id) {
-      id
-      name_zh
-      name_ja
-      region
-      level
-      badge
-      departments {
-        id
-        name
-        faculties {
-          id
-          name
-          major
-        }
-      }
-    }
-  }
-`;
+import { UnivData, univGraphql } from "src/gql/univ";
 
 @Component({
   selector: "app-univ-detail",
@@ -37,6 +12,8 @@ export const univGraphql = gql`
   styleUrls: ["./univ-detail.component.less"]
 })
 export class UnivDetailComponent implements OnInit, OnDestroy {
+  id: string;
+  category: number;
   loading: boolean;
   private querySubscription$: Subscription;
   university: University;
@@ -48,12 +25,17 @@ export class UnivDetailComponent implements OnInit, OnDestroy {
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get("id");
+    this.id = this.route.snapshot.paramMap.get("id");
+    this.category = +this.route.snapshot.paramMap.get("category");
+    this.getData();
+  }
+
+  getData() {
     this.querySubscription$ = this.apollo
-      .watchQuery<Response>({
+      .watchQuery<UnivData>({
         query: univGraphql,
         variables: {
-          id
+          id: this.id
         }
       })
       .valueChanges.subscribe(({ data, loading }) => {
