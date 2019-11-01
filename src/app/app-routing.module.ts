@@ -7,6 +7,7 @@ import { RecommendListComponent } from "./recommend-list/recommend-list.componen
 import { CatalogComponent } from "./catalog/catalog.component";
 import { SearchComponent } from "./search/search.component";
 import { AdvSearchComponent } from "./adv-search/adv-search.component";
+import { DepartmentComponent } from "./department/department.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/core", pathMatch: "full" },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: "recommend/:id/:category", component: RecommendListComponent },
   { path: "catalog/:category", component: CatalogComponent },
   { path: "search/:category", component: SearchComponent },
-  { path: "adv_search/:category", component: AdvSearchComponent }
+  { path: "adv_search/:category", component: AdvSearchComponent },
+  { path: "department/:id", component: DepartmentComponent }
 ];
 
 @NgModule({

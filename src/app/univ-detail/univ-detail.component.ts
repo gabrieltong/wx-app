@@ -5,6 +5,7 @@ import { University } from "src/models/university";
 import { Subscription } from "rxjs";
 import { Apollo } from "apollo-angular";
 import { UnivData, univGraphql } from "src/gql/univ";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-univ-detail",
@@ -22,7 +23,15 @@ export class UnivDetailComponent implements OnInit, OnDestroy {
     this.querySubscription$.unsubscribe();
   }
 
-  constructor(private apollo: Apollo, private route: ActivatedRoute) {}
+  constructor(
+    private apollo: Apollo,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
+
+  goBack(){
+    this.location.back();
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
