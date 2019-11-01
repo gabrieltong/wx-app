@@ -1,14 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UnivsComponent } from '../univs/univs.component';
-import { UnivDetailComponent } from '../univ-detail/univ-detail.component';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
-  declarations: [UnivsComponent, UnivDetailComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule]
 })
-export class CoreModule { }
+export class CoreModule {}

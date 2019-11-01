@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-univs',
-  templateUrl: './univs.component.html',
-  styleUrls: ['./univs.component.less']
+  selector: "app-univs",
+  templateUrl: "./univs.component.html",
+  styleUrls: ["./univs.component.less"]
 })
 export class UnivsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

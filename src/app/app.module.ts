@@ -15,14 +15,14 @@ import { UnivsComponent } from "./univs/univs.component";
 import { UnivDetailComponent } from "./univ-detail/univ-detail.component";
 import { RecommendListComponent } from "./recommend-list/recommend-list.component";
 import { RecommendUnivComponent } from "./recommend-univ/recommend-univ.component";
-import { CatalogComponent } from './catalog/catalog.component';
-import { CatalogItemComponent } from './catalog-item/catalog-item.component';
-import { SearchComponent } from './search/search.component';
-import { SearchItemComponent } from './search-item/search-item.component';
-import { AdvSearchComponent } from './adv-search/adv-search.component';
-import { AdvSearchItemComponent } from './adv-search-item/adv-search-item.component';
-import { SingleOptionComponent } from './single-option/single-option.component';
-import { MultiOptionComponent } from './multi-option/multi-option.component';
+import { CatalogComponent } from "./catalog/catalog.component";
+import { CatalogItemComponent } from "./catalog-item/catalog-item.component";
+import { SearchComponent } from "./search/search.component";
+import { SearchItemComponent } from "./search-item/search-item.component";
+import { AdvSearchComponent } from "./adv-search/adv-search.component";
+import { AdvSearchItemComponent } from "./adv-search-item/adv-search-item.component";
+import { SingleOptionComponent } from "./single-option/single-option.component";
+import { MultiOptionComponent } from "./multi-option/multi-option.component";
 
 registerLocaleData(zh);
 
