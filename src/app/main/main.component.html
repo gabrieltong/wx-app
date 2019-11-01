@@ -1,11 +1,31 @@
-<p>main works!</p>
+<!-- <Tabs
+  [page]="3"
+  [useOnPan]="true"
+  [swipeable]="true"
+  [activeTab]="category"
+  [tabBarActiveTextColor]="'#1890ff'"
+  (onTabClick)="setCategory($event)"
+>
+  <TabPane [title]="titleTemplate">
+    <ng-template #titleTemplate>
+      <Badge [text]="3">
+        <div>First Tab</div>
+      </Badge>
+    </ng-template>
+    <div style="height: 0;"></div>
+  </TabPane>
+  <TabPane [title]="titleTemplate1">
+    <ng-template #titleTemplate1>
+      <Badge [text]="'今日(20)'">
+        <div>Second Tab</div>
+      </Badge>
+    </ng-template>
+    <div style="height: 0;"></div>
+  </TabPane>
+</Tabs> -->
 
-<h4>Category {{ category }}</h4>
-<button (click)="category = 0">学部</button>
-<button (click)="category = 1">大学院</button>
-<hr />
 <a routerLink="/search/{{ category }}">
-  <input value="大学搜索" />
+  <SearchBar [placeholder]="'大学搜索'" [maxLength]="8"></SearchBar>
 </a>
 <hr />
 <a routerLink="/catalog/{{ category }}">
@@ -16,7 +36,7 @@
   高级搜索
 </a>
 <hr />
-<p>All Recommend</p>
+<p>为您推荐</p>
 <div *ngFor="let recommend of recommends">
   <a routerLink="/recommend/{{ recommend.id }}/{{ category }}"
     >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a

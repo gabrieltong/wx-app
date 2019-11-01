@@ -56,4 +56,8 @@ export class MainComponent implements OnInit, OnDestroy {
         this.hots = data.hots;
       });
   }
+
+  setCategory(event: any) {
+    this.category = event.index;
+  }
 }
