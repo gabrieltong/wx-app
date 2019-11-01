@@ -24,6 +24,8 @@ import { AdvSearchItemComponent } from "./adv-search-item/adv-search-item.compon
 import { SingleOptionComponent } from "./single-option/single-option.component";
 import { MultiOptionComponent } from "./multi-option/multi-option.component";
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
+import { DepartmentComponent } from './department/department.component';
+import { FacultyComponent } from './faculty/faculty.component';
 
 registerLocaleData(zh);
 
@@ -42,7 +44,9 @@ registerLocaleData(zh);
     AdvSearchComponent,
     AdvSearchItemComponent,
     SingleOptionComponent,
-    MultiOptionComponent
+    MultiOptionComponent,
+    DepartmentComponent,
+    FacultyComponent
   ],
   imports: [
     BrowserModule,
