@@ -21,6 +21,7 @@ export const univGraphql = gql`
           id
           name
           major
+          wen_or_li
         }
       }
     }

@@ -55,6 +55,7 @@ export class Department extends BaseModel {
 export class Faculty extends BaseModel {
   name: string;
   major: string;
+  wen_or_li: number;
   department: Department;
 }
 
