@@ -1,1 +1,14 @@
-<p>adv-search-item works!</p>
+<h2>
+  {{ faculty.name }}
+</h2>
+<h3>
+  <span *ngFor="let _faculty of faculty.department.faculties">{{
+    _faculty.name
+  }}</span>
+</h3>
+<h4>
+  {{ faculty.department.university.name_zh }}<br />
+  {{ faculty.department.university.univ_type }}
+  {{ faculty.department.university.region }}
+  {{ faculty.department.university.level }}
+</h4>

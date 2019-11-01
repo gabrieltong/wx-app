@@ -1,26 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { University, SearchMeta, SearchFilter } from "src/models/university";
-import gql from "graphql-tag";
+import {
+  University,
+  SearchMeta,
+  SearchFilter,
+  Faculty
+} from "src/models/university";
 import { Subscription } from "rxjs";
 import { Apollo } from "apollo-angular";
 import { ActivatedRoute } from "@angular/router";
-
-interface Response {
-  readonly searchMeta: SearchMeta;
-}
-
-export const searchMetaGraphql = gql`
-  query searchMeta {
-    searchMeta: searchMeta {
-      wen0
-      li0
-      wen1
-      li1
-      region
-      univ_type
-    }
-  }
-`;
+import { searchMetaGraphql, SearchMetaData } from "src/gql/search_meta";
+import { SearchGql, SearchData } from "src/gql/search";
 
 @Component({
   selector: "app-adv-search",
@@ -28,6 +17,10 @@ export const searchMetaGraphql = gql`
   styleUrls: ["./adv-search.component.less"]
 })
 export class AdvSearchComponent implements OnInit {
+  page = 0;
+  perPage = 5;
+  searched = false;
+  faculties: Faculty[];
   searchFilter: SearchFilter;
   searchMeta: SearchMeta;
   searchMetaSubscription$: Subscription;
@@ -35,15 +28,60 @@ export class AdvSearchComponent implements OnInit {
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.faculties = [];
     this.searchFilter = new SearchFilter();
     this.searchFilter.category = +this.route.snapshot.paramMap.get("category");
 
     this.getSearchMeta();
   }
 
+  reset() {
+    this.searchFilter = new SearchFilter();
+  }
+
+  search() {
+    this.searched = true;
+    if (this.querySubscription$) {
+      this.querySubscription$.unsubscribe();
+    }
+
+    this.querySubscription$ = this.apollo
+      .watchQuery<SearchData>({
+        query: SearchGql,
+        variables: {
+          filter: this.searchFilter,
+          page: this.page,
+          perPage: this.perPage
+        }
+      })
+      .valueChanges.subscribe(({ data }) => {
+        data.search.forEach(faculty => {
+          if (!this.faculties.find(f => f.id === faculty.id)) {
+            this.faculties.push(faculty);
+          }
+        });
+      });
+  }
+
+  get majors(): string[] {
+    if (this.searchFilter.category === 0) {
+      if (this.searchFilter.wen_or_li === 0) {
+        return this.searchMeta.wen0;
+      } else {
+        return this.searchMeta.li0;
+      }
+    } else {
+      if (this.searchFilter.wen_or_li === 0) {
+        return this.searchMeta.wen1;
+      } else {
+        return this.searchMeta.li1;
+      }
+    }
+  }
+
   getSearchMeta() {
     this.searchMetaSubscription$ = this.apollo
-      .watchQuery<Response>({
+      .watchQuery<SearchMetaData>({
         query: searchMetaGraphql
       })
       .valueChanges.subscribe(({ data }) => {
@@ -85,5 +123,4 @@ export class AdvSearchComponent implements OnInit {
       this.searchFilter.univ_type_in
     );
   }
-  search() {}
 }

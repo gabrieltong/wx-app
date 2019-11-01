@@ -1,11 +1,15 @@
 <p>高级筛选</p>
 
-<div *ngIf="searchMeta && searchFilter">
+<div *ngIf="searchMeta && searchFilter && !searched">
   <h4>科目选择 {{ searchFilter.wen_or_li }}</h4>
   <button (click)="searchFilter.wen_or_li = 0">学部文科</button>
   <button (click)="searchFilter.wen_or_li = 1">学部理科</button>
   <br /><br />
   <h4>专业选择 {{ searchFilter.major }}</h4>
+  <button *ngFor="let major of majors" (click)="searchFilter.major = major">
+    {{ major }}
+  </button>
+
   <br /><br />
   <h4>地区选择 {{ searchFilter.region_in.join(" /") }}</h4>
 
@@ -56,4 +60,14 @@
     (ee)="searchFilter.is_eju = $event"
   ></app-single-option>
   <br /><br />
+  <button (click)="reset()">重制</button>
+  <button (click)="search()">搜索</button>
+</div>
+
+<div *ngIf="searched">
+  <app-adv-search-item
+    *ngFor="let faculty of faculties"
+    [faculty]="faculty"
+  ></app-adv-search-item>
+  <button (click)="page = page + 1; search()">更多</button>
 </div>

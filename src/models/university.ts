@@ -1,8 +1,8 @@
 import { BaseModel } from "./share";
 
 export class SearchFilter {
-  wen_or_li: number;
-  major: string;
+  wen_or_li: number = null;
+  major: string = null;
   region_in: string[] = [];
   univ_type_in: string[] = [];
   category = 0;
@@ -22,10 +22,6 @@ export class SearchFilter {
   toefl_max = 1000;
   toeic_min = 0;
   toeic_max = 1000;
-
-  setIsEnglish(value: number) {
-    this.is_english = value;
-  }
 }
 
 export class SearchMeta extends BaseModel {
@@ -59,6 +55,7 @@ export class Department extends BaseModel {
 export class Faculty extends BaseModel {
   name: string;
   major: string;
+  department: Department;
 }
 
 export class Professor extends BaseModel {
