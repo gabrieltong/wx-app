@@ -20,26 +20,30 @@
   <br /><br />
 
   <h4>英语要求 {{ searchFilter.is_english }}</h4>
-  <button (click)="searchFilter.is_english = 2">不限</button>
-  <button (click)="searchFilter.is_english = 0">无</button>
-  <button (click)="searchFilter.is_english = 1">必须</button>
+  <app-single-option
+    [selected]="searchFilter.is_english"
+    (ee)="searchFilter.is_english = $event"
+  ></app-single-option>
   <br /><br />
 
   <h4>面试 {{ searchFilter.is_interview }}</h4>
-  <button (click)="searchFilter.is_interview = 2">不限</button>
-  <button (click)="searchFilter.is_interview = 0">无</button>
-  <button (click)="searchFilter.is_interview = 1">必须</button>
+  <app-single-option
+    [selected]="searchFilter.is_interview"
+    (ee)="searchFilter.is_interview = $event"
+  ></app-single-option>
   <br /><br />
 
   <h4>校内考考试 {{ searchFilter.is_xiaonei }}</h4>
-  <button (click)="searchFilter.is_xiaonei = 2">不限</button>
-  <button (click)="searchFilter.is_xiaonei = 0">无</button>
-  <button (click)="searchFilter.is_xiaonei = 1">必须</button>
+  <app-single-option
+    [selected]="searchFilter.is_xiaonei"
+    (ee)="searchFilter.is_xiaonei = $event"
+  ></app-single-option>
   <br /><br />
 
   <h4>EJU 考试 {{ searchFilter.is_eju }}</h4>
-  <button (click)="searchFilter.is_eju = 2">不限</button>
-  <button (click)="searchFilter.is_eju = 0">无</button>
-  <button (click)="searchFilter.is_eju = 1">必须</button>
+  <app-single-option
+    [selected]="searchFilter.is_eju"
+    (ee)="searchFilter.is_eju = $event"
+  ></app-single-option>
   <br /><br />
 </div>

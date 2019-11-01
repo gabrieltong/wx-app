@@ -2,46 +2,30 @@ import { BaseModel } from "./share";
 
 export class SearchFilter {
   wen_or_li: number;
-
   major: string;
-
   region_in: string[] = [];
-
   univ_type_in: string[] = [];
-
   category = 0;
-
   is_toefl = 2;
-
   is_toeic = 2;
-
   is_xiaonei_en = 2;
-
   is_english = 2;
-
   is_interview = 2;
-
   is_xiaonei = 2;
-
   is_eju = 2;
-
   is_ja = 2;
-
   eju_ja_min = 2;
-
   eju_ja_max = 1000;
-
   jlpt: string = null;
-
   is_three_univ = 2;
-
   toefl_min = 0;
-
   toefl_max = 1000;
-
   toeic_min = 0;
-
   toeic_max = 1000;
+
+  setIsEnglish(value: number) {
+    this.is_english = value;
+  }
 }
 
 export class SearchMeta extends BaseModel {

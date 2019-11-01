@@ -1,1 +1,3 @@
-<p>single-option works!</p>
+<button *ngFor="let option of options" (click)="ee.emit(option.value)">
+  {{ option.name }}
+</button>
