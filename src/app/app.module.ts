@@ -23,6 +23,7 @@ import { AdvSearchComponent } from "./adv-search/adv-search.component";
 import { AdvSearchItemComponent } from "./adv-search-item/adv-search-item.component";
 import { SingleOptionComponent } from "./single-option/single-option.component";
 import { MultiOptionComponent } from "./multi-option/multi-option.component";
+import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 
 registerLocaleData(zh);
 
@@ -50,7 +51,8 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    GraphQLModule
+    GraphQLModule,
+    NgZorroAntdMobileModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

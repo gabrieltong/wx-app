@@ -112,6 +112,13 @@
     "@angular-devkit/core" "8.3.9"
     rxjs "6.4.0"
 
+"@angular/animations@^8.2.4":
+  version "8.2.13"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-8.2.13.tgz#0fdcf9bdcc0b310bff09a024557f0f935ae9b5dc"
+  integrity sha512-ZE4UZsQ6HDW1ZIj9tL45PVosCcG4Ke7ihV7eWCE1VgLZKDDxTOPbLf1UeEiszUYptMLGH3eGMNBKo85mOlkH8w==
+  dependencies:
+    tslib "^1.9.0"
+
 "@angular/animations@~8.2.9":
   version "8.2.10"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-8.2.10.tgz#7ba692ed7f86c7ee7ad28e5fc2d8ad03b1077417"
@@ -119,7 +126,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cdk@^8.0.0":
+"@angular/cdk@^8.0.0", "@angular/cdk@^8.1.4":
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-8.2.3.tgz#16b96ffa935cbf5a646757ecaf2b19c434678f72"
   integrity sha512-ZwO5Sn720RA2YvBqud0JAHkZXjmjxM0yNzCO8RVtRE9i8Gl26Wk0j0nQeJkVm4zwv2QO8MwbKUKGTMt8evsokA==
@@ -230,7 +237,7 @@
   dependencies:
     tinycolor2 "^1.4.1"
 
-"@ant-design/icons-angular@^8.0.2":
+"@ant-design/icons-angular@^8.0.2", "@ant-design/icons-angular@~8.0.3":
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/@ant-design/icons-angular/-/icons-angular-8.0.3.tgz#e0e3a4104a878058f9a211ca427e07e2baed9c86"
   integrity sha512-P7h4g/cy2m3sb8N238QIMSHHPyJcYJahqZlDqQYxWChk3zNrSJfyWs9Rp1cEt68ZjMxsw1vwh4Fbvvm97dFedA==
@@ -5235,6 +5242,16 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+ng-zorro-antd-mobile@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ng-zorro-antd-mobile/-/ng-zorro-antd-mobile-1.0.1.tgz#022721f95518d91009250f0c29d0461de8c9cad4"
+  integrity sha512-oU7nteJTDdNi9iBXEo1CAX4S5i3zZHidNM9NfBZb4Mh1y6lA516iOS6ZDJ3ICBVmB/1NsOz7PTk1+51bmdOTXQ==
+  dependencies:
+    "@angular/animations" "^8.2.4"
+    "@angular/cdk" "^8.1.4"
+    "@ant-design/icons-angular" "~8.0.3"
+    tslib "^1.9.0"
 
 ng-zorro-antd@8.1.2:
   version "8.1.2"
