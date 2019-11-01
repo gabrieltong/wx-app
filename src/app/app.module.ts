@@ -22,6 +22,7 @@ import { SearchItemComponent } from './search-item/search-item.component';
 import { AdvSearchComponent } from './adv-search/adv-search.component';
 import { AdvSearchItemComponent } from './adv-search-item/adv-search-item.component';
 import { SingleOptionComponent } from './single-option/single-option.component';
+import { MultiOptionComponent } from './multi-option/multi-option.component';
 
 registerLocaleData(zh);
 
@@ -39,7 +40,8 @@ registerLocaleData(zh);
     SearchItemComponent,
     AdvSearchComponent,
     AdvSearchItemComponent,
-    SingleOptionComponent
+    SingleOptionComponent,
+    MultiOptionComponent
   ],
   imports: [
     BrowserModule,
