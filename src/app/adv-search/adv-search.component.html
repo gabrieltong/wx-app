@@ -1,5 +1,22 @@
 <p>高级筛选</p>
 
+<div *ngIf="showEnglishFilter">
+  校内英语
+  <!-- <input type="checkbox" [value]="searchFilter.is_xiaonei_en === 1" (change)="searchFilter.is_xiaonei_en = $event.target.value ? 1: 0" /> -->
+  searchFilter.toefl_min: {{ searchFilter.toefl_min }}
+  <input type="number" min="0" [(ngModel)]="searchFilter.toefl_min" />
+  <br />
+  searchFilter.toefl_max: {{ searchFilter.toefl_max }}
+  <input type="number" [(ngModel)]="searchFilter.toefl_max" />
+  <br />
+  searchFilter.toeic_min: {{ searchFilter.toeic_min }}
+  <input type="number" min="0" [(ngModel)]="searchFilter.toeic_min" />
+  <br />
+  searchFilter.toeic_max: {{ searchFilter.toeic_max }}
+  <input type="number" [(ngModel)]="searchFilter.toeic_max" />
+  <br />
+</div>
+
 <div *ngIf="searchMeta && searchFilter && !searched">
   <h4>科目选择 {{ searchFilter.wen_or_li }}</h4>
   <button (click)="searchFilter.wen_or_li = 0">学部文科</button>
@@ -69,5 +86,6 @@
     *ngFor="let faculty of faculties"
     [faculty]="faculty"
   ></app-adv-search-item>
+  <button (click)="showEnglishFilter = true">英语要求</button>
   <button (click)="page = page + 1; search()">更多</button>
 </div>

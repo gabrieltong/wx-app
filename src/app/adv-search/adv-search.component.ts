@@ -19,6 +19,7 @@ import { SearchGql, SearchData } from "src/gql/search";
 export class AdvSearchComponent implements OnInit {
   page = 0;
   perPage = 5;
+  showEnglishFilter = false;
   searched = false;
   faculties: Faculty[];
   searchFilter: SearchFilter;
