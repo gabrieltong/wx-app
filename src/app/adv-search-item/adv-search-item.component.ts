@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Faculty } from "src/models/university";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-adv-search-item",
@@ -8,7 +9,11 @@ import { Faculty } from "src/models/university";
 })
 export class AdvSearchItemComponent implements OnInit {
   @Input() faculty: Faculty;
-  constructor() {}
+  category: number;
+
+  constructor(private route: ActivatedRoute) {
+    this.category = +this.route.snapshot.paramMap.get("category");
+  }
 
   ngOnInit() {}
 }
