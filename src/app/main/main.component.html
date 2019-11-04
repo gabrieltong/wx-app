@@ -1,51 +1,58 @@
-<!-- <Tabs
-  [page]="3"
-  [useOnPan]="true"
-  [swipeable]="true"
-  [activeTab]="category"
-  [tabBarActiveTextColor]="'#1890ff'"
-  (onTabClick)="setCategory($event)"
->
-  <TabPane [title]="titleTemplate">
-    <ng-template #titleTemplate>
-      <Badge [text]="3">
-        <div>First Tab</div>
-      </Badge>
-    </ng-template>
-    <div style="height: 0;"></div>
-  </TabPane>
-  <TabPane [title]="titleTemplate1">
-    <ng-template #titleTemplate1>
-      <Badge [text]="'今日(20)'">
-        <div>Second Tab</div>
-      </Badge>
-    </ng-template>
-    <div style="height: 0;"></div>
-  </TabPane>
-</Tabs> -->
-
-<a routerLink="/search/{{ category }}">
-  <SearchBar [placeholder]="'大学搜索'" [maxLength]="8"></SearchBar>
-</a>
-<hr />
-<a routerLink="/catalog/{{ category }}">
-  学校一览
-</a>
-<hr />
-<a routerLink="/adv_search/{{ category }}">
-  高级搜索
-</a>
-<hr />
-<p>为您推荐</p>
-<div *ngFor="let recommend of recommends">
-  <a routerLink="/recommend/{{ recommend.id }}/{{ category }}"
-    >{{ recommend.id }} - {{ recommend.name }} - {{ recommend.img }}</a
-  >
-</div>
-<hr />
-<p>Hot University</p>
-<div *ngFor="let univ of hots">
-  <a routerLink="/univ/{{ univ.id }}/{{ category }}">
-    {{ univ.level }} {{ univ.name_zh }}
+<div class="bg"></div>
+<div class="main">
+  <a class=" margin" routerLink="/search/{{ category }}">
+    <SearchBar
+      class="search"
+      [placeholder]="'大学搜索'"
+      [maxLength]="8"
+    ></SearchBar>
   </a>
+
+  <div class="menu-card margin">
+    <a class="item" routerLink="/catalog/{{ category }}">
+      <img src="http://lorempixel.com/200/160/" />
+      <span>学校一览</span>
+    </a>
+    <a class="item" routerLink="/adv_search/{{ category }}">
+      <img src="http://lorempixel.com/200/160/" />
+      <span>高级搜索</span>
+    </a>
+    <div class="item">
+      <img src="http://lorempixel.com/200/160/" />
+      <span>智能择校</span>
+    </div>
+    <div class="item">
+      <img src="http://lorempixel.com/200/160/" />
+      <span>择校单</span>
+    </div>
+  </div>
+
+  <h1 class="margin">为您推荐</h1>
+
+  <div class="recommends">
+    <a
+      class="item"
+      *ngFor="let recommend of recommends"
+      routerLink="/recommend/{{ recommend.id }}/{{ category }}"
+    >
+      <img src="http://lorempixel.com/200/100/" />
+      <span>{{ recommend.name }}</span>
+    </a>
+  </div>
+
+  <h1 class="margin">热门院校</h1>
+  <div class="hots-outter">
+    <div class="hots">
+      <a
+        class="item"
+        *ngFor="let univ of hots"
+        routerLink="/univ/{{ univ.id }}/{{ category }}"
+      >
+        <img src="http://lorempixel.com/100/100/" />
+        <span>{{ univ.name_zh }}</span>
+      </a>
+    </div>
+  </div>
+
+  <h1 class="margin">热门排名</h1>
 </div>

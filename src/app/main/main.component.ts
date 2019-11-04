@@ -60,4 +60,14 @@ export class MainComponent implements OnInit, OnDestroy {
   setCategory(event: any) {
     this.category = event.index;
   }
+
+  // view related start >>>>
+  get recommendGridData(): Array<{ icon: string; text: string }> {
+    return Array.from(new Array(4)).map((_val, i) => ({
+      icon:
+        "https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png",
+      text: `name${i}`
+    }));
+  }
+  // view related end >>>>
 }
